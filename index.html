@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f0f4f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: #ffffff;
+        padding: 20px 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        width: 320px;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    input[type="number"] {
+        width: 90%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    button {
+        background: #4CAF50;
+        color: white;
+        border: none;
+        padding: 12px 18px;
+        margin: 5px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #45a049;
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    #output {
+        width: 90%;
+        padding: 10px;
+        margin-top: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #222;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Kalkulator</h2>
+    <input type="number" id="angka1" placeholder="Input Bilangan 1"><br>
+    <input type="number" id="angka2" placeholder="Input Bilangan 2"><br>
+    
+    <button type="button" onclick="proses('+')">+</button>
+    <button type="button" onclick="proses('-')">-</button>
+    <button type="button" onclick="proses('*')">*</button>
+    <button type="button" onclick="proses('/')">/</button>
+    
+    <input type="number" id="output" placeholder="Hasil" readonly>
+  </div>
+
+  <script>
+    function proses(operator) {
+        let angka1 = Number(document.getElementById("angka1").value);
+        let angka2 = Number(document.getElementById("angka2").value);
+        let hasil;
+
+        switch(operator) {
+            case "+": hasil = angka1 + angka2; break;
+            case "-": hasil = angka1 - angka2; break;
+            case "*": hasil = angka1 * angka2; break;
+            case "/": hasil = angka2 !== 0 ? angka1 / angka2 : "Error"; break;
+        }
+
+        document.getElementById("output").value = hasil;
+    }
+  </script>
+</body>
+</html>
